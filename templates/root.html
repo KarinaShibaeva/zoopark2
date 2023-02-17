@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>ZOOPARK</title>
+        <script src = '{% static "js/bootstrap.min.js" %}'></script>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+   </head>
+   <body class="mb-0 mt-0 align-content-center justify-content-center d-flex" style="height: 100%; background-color: #ddddff">
+            <div class="w-75" style="height: 100%; background-color: white;">
+            <div class="w-100 ps-3 pt-3 pb-3 mb-3 d-inline-flex align-items-center" style="border: 1px solid lightgray; border-radius: 0 0 4px 4px;">
+                <h1>ZooPark</h1>
+                <ul class="fs-5 ms-4 h-25 list-group list-group-horizontal">
+                    <li class="list-group-item {% if page == 'home' %} active {% endif  %}"><a href="{% url 'info:home' %}" class="off-link-decoration">Home</a></li>
+                    <li class="list-group-item {% if page == 'animals' %} active {% endif  %}"><a href="{% url 'animals:a' %}" class="off-link-decoration">Animals</a></li>
+                    <li class="list-group-item {% if page == 'info' %} active {% endif  %}"><a href="{% url 'info:info' %}" class="off-link-decoration">Info</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </body>
+</html>
